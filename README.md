@@ -1,29 +1,34 @@
+
 # 🚀 Flask ML Deployment on AWS
 
 A production-ready Machine Learning API deployment using **Flask**, **Gunicorn**, **Docker**, and **Nginx** on an **AWS EC2 (Ubuntu)** instance.
-
----
 
 ## 📂 Project Structure
 
 ```text
 .
+├── Templates
+    ├── index.html
+├── Statis
+    ├──style.css
 ├── app.py              # Flask API & Model Inference logic
 ├── model.pkl           # Trained ML Model (Binary file)
 ├── Dockerfile          # Container instructions
 ├── requirements.txt    # Python dependencies (Flask, Gunicorn, etc.)
 └── README.md           # Project documentation
 
+```
 # 🛠️ Initial Server Setup (AWS Ubuntu)
-
 This section details the steps to prepare a fresh AWS Ubuntu 22.04/24.04 instance for hosting a Flask/Docker application.
 
 ---
 
 ## 1. System Updates
 Ensure your package lists and installed software are up to date:
+
 ```bash
 sudo apt update && sudo apt upgrade -y
+```
 
 # 🐳 Docker Deployment Guide (Flask ML API)
 
@@ -46,7 +51,7 @@ The build process creates a snapshot of your environment.
 ### Standard Build
 ```bash
 docker build -t mymlapp:latest .
-
+```
 ## 🛡️ AWS Security Group Configuration (GUI)
 
 To allow traffic to your ML API, you must configure the **Inbound Rules** in the AWS Console. 
@@ -65,7 +70,6 @@ Ensure your "Inbound Rules" table matches the settings below:
 | **Custom TCP** | TCP | 5000 | `0.0.0.0/0` | (Optional) For testing Docker directly. |
 
 ---
-
 ### 📝 How to capture this screenshot:
 1. Log in to your **AWS Management Console**.
 2. Go to **EC2 > Instances** and click on your Instance ID.
